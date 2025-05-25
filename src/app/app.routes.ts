@@ -1,4 +1,4 @@
-import { Routes } from '@angular/router';
+import { Routes,ExtraOptions  } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { Rout404Component } from './rout404/rout404.component';
 import { MainComponent } from './main/main.component';

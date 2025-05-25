@@ -10,16 +10,9 @@ import { AfterViewInit, Component, OnInit, Renderer2 } from '@angular/core';
 export class GalleryComponent implements AfterViewInit, OnInit {
   constructor(private renderer: Renderer2) { }
   ngOnInit(): void {
-    this.renderer.addClass(document.body, 'loading');
   }
   async ngAfterViewInit(): Promise<void> {
     if (typeof document !== 'undefined') {
-      this.renderer.removeClass(document.body, 'loading');
-      // Hide the loading container element
-      const loadingCont = document.querySelector('.loading-cont') as HTMLElement;
-      if (loadingCont) {
-        loadingCont.style.display = 'none';
-      }
       const gsapModule = await import('gsap');
       const ScrollSmoother = (await import('gsap/ScrollSmoother')).default;
       const ScrollTrigger = (await import('gsap/ScrollTrigger')).default;

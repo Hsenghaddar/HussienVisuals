@@ -42,6 +42,9 @@ export class PortfolioComponent implements AfterViewInit {
   constructor(private router: Router) { }
   linkToGallery() {
     this.router.navigate(['/gallery'])
+          setTimeout(() => {
+        window.location.reload();
+      }, 100);
   }
 
 }
