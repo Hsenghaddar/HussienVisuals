@@ -37,6 +37,7 @@ export class NavComponent {
   scrollToSection(event: Event, sectionclass: string) {
     event.preventDefault();// Prevent page reload
     const doScroll = () => {
+
       if (typeof document !== 'undefined') {
         //define them here because if we are in gallery page these elements are not found
         const el = document.querySelector("." + sectionclass);
@@ -51,11 +52,12 @@ export class NavComponent {
     }
     if (this.router.url === '/gallery') {
       this.router.navigate(['/main'])
-      setTimeout(doScroll, 100);//to ensure DOM is rendered
+      
       setTimeout(() => {
         window.location.reload();
-      }, 1500);
-    } else {
+      }, 50);
+      setTimeout(doScroll, 1000);//to ensure DOM is rendered
+    } else if(this.router.url === '/main'){
       doScroll();
     }
   }
