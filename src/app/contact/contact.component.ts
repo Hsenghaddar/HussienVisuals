@@ -12,14 +12,14 @@ export class ContactComponent implements AfterViewInit {
   ngAfterViewInit(): void {
     const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
-    function scrambleText(label:any) {
+    function scrambleText(label: any) {
       const originalText = label.dataset.text;
       let iteration = 0;
 
       const interval = setInterval(() => {
         label.innerText = originalText
           .split("")
-          .map((char:any, index:any) => {
+          .map((char: any, index: any) => {
             if (index < iteration) return originalText[index];
             return letters[Math.floor(Math.random() * letters.length)];
           })
@@ -29,14 +29,14 @@ export class ContactComponent implements AfterViewInit {
         iteration += 1 / 3; // Adjust speed
       }, 30);
     }
-
-    document.querySelectorAll(".scramble").forEach((label) => {
-      document.querySelectorAll(".form2").forEach((form) => {
-        form.addEventListener("mouseenter", () => scrambleText(form.firstChild))
-      })
-    });
+    if (typeof document !== 'undefined') {
+      document.querySelectorAll(".scramble").forEach((label) => {
+        document.querySelectorAll(".form2").forEach((form) => {
+          form.addEventListener("mouseenter", () => scrambleText(form.firstChild))
+        })
+      });
+    }
   }
-
 
   name!: string
   email!: string
@@ -45,28 +45,29 @@ export class ContactComponent implements AfterViewInit {
   message!: string
   sendmessage(e: Event, f: NgForm): void {
     e.preventDefault();
-    document.querySelectorAll("input").forEach((input) => {
-      input.nextElementSibling?.classList.remove("empty");
-      input.previousElementSibling?.classList.remove("empty")
-    })
-    const textarea = document.querySelector("textarea")
-    if (textarea) {
-      textarea.nextElementSibling?.classList.remove("empty");
-      textarea.previousElementSibling?.classList.remove("empty")
-    }
-    if (!f.valid) {
+    if (typeof document !== 'undefined') {
       document.querySelectorAll("input").forEach((input) => {
-        if (input.value == "") {
-          input.nextElementSibling?.classList.add("empty");
-          input.previousElementSibling?.classList.add("empty")
-        }
+        input.nextElementSibling?.classList.remove("empty");
+        input.previousElementSibling?.classList.remove("empty")
       })
-      if (textarea?.value == "") {
-        textarea.nextElementSibling?.classList.add("empty");
-        textarea.previousElementSibling?.classList.add("empty")
+      const textarea = document.querySelector("textarea")
+      if (textarea) {
+        textarea.nextElementSibling?.classList.remove("empty");
+        textarea.previousElementSibling?.classList.remove("empty")
       }
-    } else {
-      const fullmessage = `
+      if (!f.valid) {
+        document.querySelectorAll("input").forEach((input) => {
+          if (input.value == "") {
+            input.nextElementSibling?.classList.add("empty");
+            input.previousElementSibling?.classList.add("empty")
+          }
+        })
+        if (textarea?.value == "") {
+          textarea.nextElementSibling?.classList.add("empty");
+          textarea.previousElementSibling?.classList.add("empty")
+        }
+      } else {
+        const fullmessage = `
     Hello Hussien Visuals,
 
    My name is ${this.name}.
@@ -77,9 +78,9 @@ export class ContactComponent implements AfterViewInit {
    Message:
    ${this.message}
     `
-      const url = `https://wa.me/81249957?text=${encodeURIComponent(fullmessage)}`
-      window.open(url, '_blank');
+        const url = `https://wa.me/81249957?text=${encodeURIComponent(fullmessage)}`
+        window.open(url, '_blank');
+      }
     }
-
   }
 }

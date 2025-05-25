@@ -5,12 +5,13 @@ import Swiper from 'swiper';
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [NavComponent],
+  imports: [],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
 export class HomeComponent implements AfterViewInit {
   ngAfterViewInit() {
+    
     new Swiper('.swiper-container', {
       slidesPerView: 'auto',
       spaceBetween: 0,
@@ -30,10 +31,13 @@ export class HomeComponent implements AfterViewInit {
     });
   }
   scrollToSection(event: Event, sectionclass: string) {
-    event.preventDefault(); 
-    const el = document.querySelector("." + sectionclass);
-    if (el) {
+    event.preventDefault();
+    if (typeof document !== 'undefined') {
+      const el = document.querySelector("." + sectionclass);
+      if (el) {
       el.scrollIntoView({ behavior: 'smooth' });
     }
+    }
+    
   }
 }

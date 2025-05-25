@@ -37,14 +37,16 @@ export class NavComponent {
   scrollToSection(event: Event, sectionclass: string) {
     event.preventDefault();// Prevent page reload
     const doScroll = () => {
-      //define them here because if we are in gallery page these elements are not found
-      const el = document.querySelector("." + sectionclass);
-      const sidebar = document.querySelector(".sidebar")
-      if (el) {
-        el.scrollIntoView({ behavior: 'smooth' });
-      }
-      if (sidebar?.classList.contains('open-sidebar')) {
-        this.sidebar = false;
+      if (typeof document !== 'undefined') {
+        //define them here because if we are in gallery page these elements are not found
+        const el = document.querySelector("." + sectionclass);
+        const sidebar = document.querySelector(".sidebar")
+        if (el) {
+          el.scrollIntoView({ behavior: 'smooth' });
+        }
+        if (sidebar?.classList.contains('open-sidebar')) {
+          this.sidebar = false;
+        }
       }
     }
     if (this.router.url === '/gallery') {
