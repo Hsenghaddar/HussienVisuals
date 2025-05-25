@@ -242,7 +242,7 @@ section,
   .panel1 {
     flex-direction: column;
     align-items: start;
-    justify-content: space-evenly;
+    justify-content: space-between;
     padding-top: 30px;
     padding-right: 30px;
   }
@@ -488,3 +488,8 @@ section,
     font-size: 60px;
   }
 }
+@media screen and (max-width:500px){
+  .panel{
+    height: 90vh;
+  }
+} 
