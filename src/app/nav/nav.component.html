@@ -1,0 +1,39 @@
+<nav [ngClass]="{'visible':visible,'hidden':hidden}">
+  <div class="header">
+      <div class="logo-container ">
+          <a  (click)="scrollToSection($event, 'Home')"><img class="logo" src="assets/images/Hussien-removebg-preview.png" alt=""></a>
+          <a (click)="scrollToSection($event, 'Home')"><img class="logoOnHover" src="assets/images/Hussien__2_-removebg-preview.png" alt=""></a>
+      </div>
+      <ul class="nav-list">
+          <a  (click)="scrollToSection($event, 'Home')"><li >HOME</li></a>
+          <a  (click)="scrollToSection($event, 'portfolio')"><li>PORTFOLIO</li></a>
+          <a  (click)="scrollToSection($event, 'about')"><li>ABOUT US</li></a>
+          <a  (click)="scrollToSection($event, 'mission')"><li  class="feature">OUR MISSION</li></a>
+          <a  (click)="scrollToSection($event, 'contact')" #lol><li>CONTACT US</li></a>
+      </ul>
+      <div class="nav-icons">
+          <div (click)="openSidebar()" class="menu">
+              <svg class="menu-svg" xmlns="http://www.w3.org/2000/svg" height="40px" viewBox="0 -960 960 960" width="40px" fill="#f6f3f0"><path d="M120-240v-66.67h720V-240H120Zm0-206.67v-66.66h720v66.66H120Zm0-206.66V-720h720v66.67H120Z"/></svg>                
+              <p>MENU</p>
+          </div>
+      </div>
+      <div class="sidebar" (click)="closeSidebar()" [ngClass]="{'open-sidebar':sidebar}">
+          <div class="sidebar-menu" [ngClass]="{'open':sidebar}" (click)="$event.stopPropagation()">
+              <p (click)="closeSidebar()" class="close-sidebar"  href="#">
+                  <svg xmlns="http://www.w3.org/2000/svg" height="28px" viewBox="0 -960 960 960" width="28px" fill="#f6f3f0"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg>
+                  <span>close</span>
+              </p>
+              <ul >
+                  <a  (click)="scrollToSection($event, 'Home')"><li>HOME</li></a>
+                  <a  (click)="scrollToSection($event, 'portfolio')"><li>PORTFOLIO</li></a>
+                  <a (click)="scrollToSection($event, 'about')"><li>ABOUT US</li></a>
+                  <a class="feature2"  (click)="scrollToSection($event, 'mission')"><li>OUR MISSION</li></a>
+                  <a (click)="scrollToSection($event, 'contact')"><li>CONTACT US</li></a>
+              </ul>
+          </div>
+          
+      </div>
+  </div>
+</nav>
+<!-- Dark Mode Toggle: Include a toggle to switch between dark and light modes for the sidebar. -->
+

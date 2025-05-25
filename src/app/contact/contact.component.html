@@ -1,0 +1,49 @@
+<section class="contact">
+    <div>
+        <p>FILL OUT THE FORM</p>
+        <h2>Send us a message</h2>
+        <form #f="ngForm" (ngSubmit)="sendmessage($event,f)">
+            <div class="form2">
+                <label class="scramble" for="name" data-text="FULL NAME">FULL NAME</label>
+                <input [(ngModel)]="name" type="text" name="name" required  id="name" placeholder="John">
+                <span class="hoverLine"></span>
+            </div>
+            <div class="info">
+                <div class="form2">
+                    <label class="scramble" for="email" data-text="EMAIL">EMAIL</label>
+                    <input [(ngModel)]="email" type="text" id="email"  name="email" required placeholder="johndoe@gmail.com">
+                    <span class="hoverLine"></span>
+                </div>
+                <div class="form2">
+                    <label class="scramble" for="phone" data-text="PHONE">PHONE</label>
+                    <input [(ngModel)]="phone" type="text" id="phone" name="phone" required placeholder="+961 81249957">
+                    <span class="hoverLine"></span>
+                </div>
+            </div>
+            <div class="form2">
+                <label class="scramble" for="inquiry" data-text="INQUIRY TYPE">INQUIRY TYPE</label>
+                <input [(ngModel)]="inquiry" class="inqiury" id="inquiry" name="inquiry" required type="text" placeholder="Wedding | Portrait | Product | Event">
+                <span class="hoverLine"></span>
+            </div>
+            <div class="form2">
+                <label class="scramble" for="message" data-text="MESSAGE">MESSAGE</label>
+                <textarea [(ngModel)]="message" name="" id="message" required name="message"
+                    placeholder="Hello Hussien visuals, Looking for a product shoot..."></textarea>
+                    <span class="hoverLine hoverLine5"></span>
+            </div>
+            <button type="submit">
+                <div class="svg-wrapper-1">
+                    <div class="svg-wrapper">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20">
+                            <path fill="none" d="M0 0h24v24H0z"></path>
+                            <path fill="currentColor"
+                                d="M1.946 9.315c-.522-.174-.527-.455.01-.634l19.087-6.362c.529-.176.832.12.684.638l-5.454 19.086c-.15.529-.455.547-.679.045L12 14l6-8-8 6-8.054-2.685z">
+                            </path>
+                        </svg>
+                    </div>
+                </div>
+                <span>Send</span>
+            </button>
+        </form>
+    </div>
+</section>

@@ -1,0 +1,205 @@
+section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background: url(../../assets/images/gautam-singh-2ObzST_yAog-unsplash.jpg);
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding: 20px 0;
+    width: 100vw;
+    box-shadow:
+        inset 4px 4px 10px rgba(0, 0, 0, 0.6),
+        /* shadow from top-left */
+        inset -4px -4px 10px rgba(255, 255, 255, 0.1);
+}
+
+form {
+    width: 500px;
+    width: 100%;
+}
+
+label {
+    display: block;
+    font-size: 12px;
+    font-family: "Geist Mono", monospace;
+    color: white;
+}
+
+.info {
+    display: flex;
+    gap: 15px;
+}
+
+input {
+    border: none;
+    border-bottom: 1px solid #E8DCDA;
+    background: none;
+    width: 430px;
+    padding: 5px;
+    margin-bottom: 20px;
+    outline: none;
+    color: white;
+}
+
+section p:first-child {
+    margin: 0;
+    font-family: "Geist Mono", monospace;
+    font-size: 13px;
+    color: white;
+}
+
+section h2:nth-child(2) {
+    color: white;
+    font-family: "Geist Mono", monospace;
+
+}
+label.empty{
+    color: red;
+}
+textarea {
+    border: none;
+    border-bottom: 1px solid #E8DCDA;
+    background: none;
+    width: 100%;
+    padding: 5px;
+    margin-bottom: 20px;
+    height: 26px;
+    outline: none;
+    color: white;
+}
+
+/* From Uiverse.io by adamgiebl */
+button {
+    font-family: inherit;
+    font-size: 18px;
+    background: #a8dadc;
+    color: white;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    border: none;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: all 0.2s;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 40px;
+
+}
+
+button span {
+    display: block;
+    margin-left: 0.3em;
+    transition: all 0.3s ease-in-out;
+}
+
+button svg {
+    display: block;
+    transform-origin: center center;
+    transition: transform 0.3s ease-in-out;
+}
+
+button:hover .svg-wrapper {
+    animation: fly-1 0.6s ease-in-out infinite alternate;
+}
+
+button:hover svg {
+    transform: translateX(1.2em) rotate(45deg) scale(1.1);
+}
+
+button:hover span {
+    transform: translateX(25em);
+}
+
+button:active {
+    transform: scale(0.95);
+}
+
+@keyframes fly-1 {
+    from {
+        transform: translateY(0.1em);
+    }
+
+    to {
+        transform: translateY(-0.1em);
+    }
+}
+
+.inqiury {
+    width: 100% !important;
+}
+
+.hoverLine {
+    position: absolute;
+    bottom: 20px;
+    left: 0;
+    height: 1px;
+    width: 100%;
+    background: #a8dadc;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.5s ease-in-out;
+    z-index: 12;
+}
+.hoverLine.empty{
+    transform: scaleX(1);
+    background-color: red;
+}
+.form2:hover .hoverLine {
+    transform: scaleX(1);
+}
+
+.form2 {
+    position: relative;
+}
+
+form .form2:first-child .hoverLine {
+    width: 430px;
+}
+
+.info .hoverLine {
+    bottom: 20px;
+}
+
+form .form2:nth-child(4) .hoverLine {
+    bottom: 26.5px;
+}
+
+@media screen and (max-width:1000px) {
+    input {
+        width: 300px;
+    }
+
+    form .form2:first-child .hoverLine {
+        width: 300px;
+    }
+}
+
+@media screen and (max-width:700px) {
+    .info {
+        flex-direction: column;
+    }
+
+    input {
+        width: 100% !important;
+    }
+    .hoverLine{
+        width: 100% !important;
+    }
+}
+
+@media screen and (max-width:1000px) {
+    input {
+        width: 300px;
+    }
+}
+@media screen and (max-width:480px) {
+    h2{
+        font-size: 35px;
+    }
+}
