@@ -340,6 +340,7 @@
   color: white;
   animation: slideHint 10s ease-in-out ;
   opacity: 0;
+  font-size: 20px;
 }
 @keyframes slideHint {
   0% { transform: translateX(-50%);
