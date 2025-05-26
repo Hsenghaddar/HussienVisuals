@@ -21,7 +21,6 @@ export class HomeComponent implements AfterViewInit {
         delay: 1,  // Set a delay for autoplay to take place (adjust as needed)
         disableOnInteraction: false,  // Continue autoplay even after user interaction
       },
-
       speed: 5000,
       simulateTouch: true,
       grabCursor: true,
