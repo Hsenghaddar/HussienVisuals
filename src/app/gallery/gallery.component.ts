@@ -32,6 +32,16 @@ export class GalleryComponent implements AfterViewInit, OnInit {
         onUpdate: self => skewSetter(clamp(self.getVelocity() / -50)),
         onStop: () => skewSetter(0)
       });
+      ScrollTrigger.create({
+        trigger: "#content",
+        start: "top top",
+        end: "bottom bottom",
+        onUpdate: (self) => {
+          if (self.progress === 1 || self.progress === 0) {
+            skewSetter(0);
+          }
+        }
+      });
     }
   }
 }
