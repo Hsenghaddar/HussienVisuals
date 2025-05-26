@@ -338,7 +338,7 @@
   align-items: center;
   z-index: 2;
   color: white;
-  animation: slideHint 7s ease-in-out ;
+  animation: slideHint 10s ease-in-out ;
   opacity: 0;
 }
 @keyframes slideHint {
